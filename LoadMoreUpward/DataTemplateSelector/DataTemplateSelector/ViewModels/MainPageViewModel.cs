@@ -132,7 +132,6 @@ namespace DataTemplateSelector
             var firstItem = ListView.DataSource.DisplayItems[0];
             this.GridIsVisible = false;
             this.IndicatorIsVisible = true;
-            await Task.Delay(500);
             var r = new Random();
             ListView.DataSource.BeginInit();
             for (int i = 0; i < 5; i++)
@@ -144,6 +143,7 @@ namespace DataTemplateSelector
                 this.Messages.Insert(0, collection);
             }
             ListView.DataSource.EndInit();
+            await Task.Delay(500);
             var firstItemIndex = ListView.DataSource.DisplayItems.IndexOf(firstItem);
             var header = (ListView.HeaderTemplate != null && !ListView.IsStickyHeader) ? 1 : 0;
             var totalItems = firstItemIndex + header;
