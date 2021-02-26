@@ -22,15 +22,16 @@
             ItemSize="100">
             <sync:SfListView.HeaderTemplate>
                 <DataTemplate>
-                    <ViewCell>
-                        <Grid>
-                            <Grid BackgroundColor="#d3d3d3" IsVisible="{Binding GridIsVisible}">
-                                <Button Text="Load More" Command="{Binding Path=BindingContext.LoadCommand, Source={x:Reference ListView}}" CommandParameter="{x:Reference ListView}"
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid BackgroundColor="#d3d3d3" IsVisible="{Binding GridIsVisible}">
+                            <Button Text="Load More" Command="{Binding Path=BindingContext.LoadCommand, Source={x:Reference ListView}}" CommandParameter="{x:Reference ListView}"
                                         HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-                            </Grid>
-                            <sync:LoadMoreIndicator Color="Red" IsRunning="True" IsVisible="{Binding IndicatorIsVisible}"/>
                         </Grid>
-                    </ViewCell>
+                        <sync:LoadMoreIndicator Color="Red" IsRunning="True" IsVisible="{Binding IndicatorIsVisible}"/>
+                    </Grid>
                 </DataTemplate>
             </sync:SfListView.HeaderTemplate>
             <sync:SfListView.FooterTemplate>
